@@ -1,0 +1,12 @@
+<div class="container-fluid pt-4">
+    <div class="row">
+        <div class="offset-sm-8 col-sm-4 col-12">
+            <input type="text" [(ngModel)]="filterValue" placeholder="Search Assignee" class="float-right" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-12" *ngFor="let task of tasks | filter: 'assignee': filterValue">
+            <app-task-card [task]="task" (getSelectedTaskFromCard)="selectedTask($event)"></app-task-card>
+        </div>
+    </div>
+</div>

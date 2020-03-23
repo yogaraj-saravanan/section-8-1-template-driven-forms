@@ -1,0 +1,13 @@
+<div 
+    class="card mt-2" 
+    style="width: 100%"
+    [ngClass]="{priority: task.priority === 'high'}"
+>
+    <img class="card-img-top" src="https://project-management.com/wp-content/uploads/2019/09/task-management-software.png" width="25%" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">{{task.taskName}}</h5>
+        <p><b>{{task.status | uppercase}}</b></p>
+        <p class="card-text">{{task.details}}</p>
+        <a href="#" class="btn btn-primary" (click)="getSelectedTask(task)">View Details</a>
+    </div>
+</div>
