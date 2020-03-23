@@ -1,0 +1,68 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8 col-12">
+      <form (ngSubmit)="onAddTask(f)" #f="ngForm">
+        <div class="container-fluid my-4">
+          <div class="form-row">
+            <div class="form-group col-md-4 col-12">
+              <label for="Task Name">Task Name</label>
+              <input type="text" name="taskName" ngModel class="form-control" minlength="6" required id="Task Name" placeholder="Task Name">
+            </div>
+            <div class="form-group col-md-4 col-12">
+              <label for="inputCreator">Creator</label>
+              <select id="inputCreator" name="creator" ngModel class="form-control">
+                <option>Muthu</option>
+                <option>Rahul</option>
+                <option>Sakthi</option>
+                <option>Siddharth</option>
+                <option>Ponvel</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4 col-12">
+              <label for="inputAssignee">Assignee</label>
+              <select name="assignee" ngModel id="inputAssignee" class="form-control">
+                <option>Muthu</option>
+                <option>Rahul</option>
+                <option>Sakthi</option>
+                <option>Siddharth</option>
+                <option>Ponvel</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4 col-12">
+              <label for="inputPriority">Priority</label>
+              <select name="priority" ngModel id="inputPriority" class="form-control">
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4 col-12">
+              <label for="inputStatus">Status</label>
+              <select name="status" ngModel id="inputStatus" class="form-control">
+                <option>Active</option>
+                <option>Closed</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4 col-12">
+              <label for="inputCompletionDate">Completion Date</label>
+              <input name="completionDate" ngModel type="date" class="form-control" id="Completion Date" placeholder="Completion Date">
+            </div>
+            <div class="form-group col-12">
+              <label for="taskDescription">Description</label>
+              <textarea name="details" ngModel class="form-control" maxlength="30" required id="taskDescription" rows="2"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="f.invalid && f.dirty">Add Task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8 col-12 border-right">
+      <app-tasks-list [tasks]="tasksList" (getSelectedTaskFromList)="selectedTaskData($event)"></app-tasks-list>
+    </div>
+    <div class="col-sm-4 col-12">
+      <app-task-detail [task]="taskSelected"></app-task-detail>
+    </div>
+  </div>
+</div>
